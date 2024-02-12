@@ -63,12 +63,11 @@ const createBookingCheckout = async (session) => {
 
 exports.webhookCheckout = (req, res, next) => {
   let event;
-
   try {
-    const signiture = req.headers['stripe-signiture'];
+    const signature = req.headers['stripe-signature'];
     event = stripe.webhooks.constructEvent(
       req.body,
-      signiture,
+      signature,
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
