@@ -62,7 +62,7 @@ const createBookingCheckout = async (session) => {
 };
 
 exports.webhookCheckout = (req, res, next) => {
-  const signiture = req.headers['signiture'];
+  const signiture = req.headers['stripe-signiture'];
 
   let event;
   try {
