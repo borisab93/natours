@@ -50,6 +50,7 @@ const scriptSrcUrls = [
   'https://cdnjs.cloudflare.com/',
   'https://js.stripe.com/v3/',
   'https://checkout.stripe.com',
+  'https://*.vercel.app',
 ];
 const styleSrcUrls = [
   'https://unpkg.com/',
@@ -57,6 +58,7 @@ const styleSrcUrls = [
   'https://fonts.googleapis.com/',
   'https://cdnjs.cloudflare.com/',
   'https://checkout.stripe.com',
+  'https://*.vercel.app',
 ];
 const connectSrcUrls = [
   'https://unpkg.com',
@@ -64,13 +66,14 @@ const connectSrcUrls = [
   'https://cdnjs.cloudflare.com/',
   'ws://127.0.0.1:*/',
   '*.stripe.com',
+  'https://*.vercel.app',
 ];
 const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ["'self'", 'http://127.0.0.1:3000/*'],
+      defaultSrc: ["'self'", 'http://127.0.0.1:3000/*', 'https://*.vercel.app'],
       baseUri: ["'self'"],
       connectSrc: ["'self'", ...connectSrcUrls],
       scriptSrc: ["'self'", ...scriptSrcUrls],
